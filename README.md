@@ -44,7 +44,7 @@ Or a relative time:
 [Relative dates](https://ellislab.com/expressionengine/user-guide/templates/date_variable_formatting.html#relative-dates) allow you to customize the output quite a bit:
 
     You can read this {finished_reading_time:relative depth="2"}.
-    <!-- You can read this in 6 minute sand 57 seconds. -->
+    <!-- You can read this in 6 minutes and 57 seconds. -->
 
 Or even:
 
