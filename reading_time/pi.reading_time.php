@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /*
-Copyright (C) 2014 EllisLab, Inc.
+Copyright (C) 2015–2016 EllisLab, Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -25,15 +25,6 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from EllisLab, Inc.
 */
 
-$plugin_info = array(
-	'pi_name'        => 'Reading Time',
-	'pi_version'     => '1.0',
-	'pi_author'      => 'EllisLab Dev Team',
-	'pi_author_url'  => 'https://ellislab.com/',
-	'pi_description' => 'Outputs the estimated reading time for the given content',
-	'pi_usage'       => Reading_time::usage()
-);
-
 /**
  * Reading Time plugin class
  *
@@ -41,13 +32,13 @@ $plugin_info = array(
  * @subpackage  Addons
  * @category    Plugin
  * @author      EllisLab Dev Team
- * @copyright   Copyright (c) 2015, EllisLab, Inc.
+ * @copyright   Copyright (c) 2015–2016, EllisLab, Inc.
  * @link        https://github.com/EllisLab/Reading-Time
  */
 class Reading_time {
 
 	/**
-	 * The plugin return data, since we do our work in the constructor
+	 * @var The plugin return data, since we do our work in the constructor
 	 **/
 	public $return_data;
 
@@ -70,14 +61,7 @@ class Reading_time {
 
 		$this->return_data = ee()->TMPL->parse_variables($tagdata, array($vars));
 	}
-
-	/**
-	 * Plugin usage
-	 *
-	 * @return  string  how to use the plugin
-	 **/
-	public static function usage()
-	{
-		return 'See documentation at GitHub: https://github.com/EllisLab/Reading-Time';
-	}
 }
+// END CLASS
+
+// EOF
