@@ -1,0 +1,29 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+
+install:
+  - composer install
+
+script:
+  - reading_time/vendor/jakub-onderka/php-parallel-lint/parallel-lint --exclude reading_time/vendor .
+
+before_deploy:
+  - composer install --no-dev
+  - zip -r 'Reading Time' reading_time
+
+  deploy:
+    provider: releases
+    api_key:
+      secure: Lrur90ja32OQllFph6CvgXB4ymmybVWYbyukp/HzmYQme1ZhGenYzWS64yNcdZPNY6lNgkT133qv5YC1TkivAvke3jtA3+bbXjm/fCnlz9MMzddWNyXlcLQudt5W9yXUNwjDZ0rIv9dDx4Lz2WpN64Y9FkYcP5bKBHriBjr89CaGWZZhWCAvExv0ZEJ1kfYaD2DFQM0HQoDjyQFrjy8bOGlZ9Rv6h3Z99RT11zmbm1l4XA2iOMiIMw9XspaOt+NcgBQoSgnr8fUr57JJDSIKTplScVqz0vSShvqQB8UvOmpqiT/hjmN3WrDPUt4zReQp6q2nrCwzWCj3DuBCuHguXf+v7StUt/4VoHidULkKrRuq3VADOtPSuVttslNoQc+amH38mUGVmNBG/FlLyPj1M5njlLTKYSEf5J9t/tKRZRMZ0mBYfbDGteIPn+JxMROEKvkGDAUqQvk+WKeIdZSxU6cF7LLuQj0ltClT2SnvjJRwm2zjNHRflrgFyAGyK1EaQKByobC4bouA+TNiAxai/TBVW3TzDL28W8fVbNCk6luwtAzLuPl/QmlzsrbuSsCbgEIu2kUu0tlVDTcoAjM6kK3iGtzK95ecl4iQ+bDlbzJ5jiT7piEfypHlJIo0WVMW+yPiP/2FetgBkjqlJs5tcIujlds612ufh/7V7aTQK8I=
+    file: "Reading Time.zip"
+    skip_cleanup: true
+    on:
+      php: 7.0
+      tags: true
+      condition: $TRAVIS_PULL_REQUEST = false
