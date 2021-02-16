@@ -59,6 +59,10 @@ Or even:
 
 ## Changelog
 
+### 2.1.0
+
+- Changed the plugin namespace to make it EE6 compatible.
+
 ### 2.0.1
 
 - Automated linting and release builds (dev, no functional change)
